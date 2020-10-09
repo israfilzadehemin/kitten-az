@@ -1,0 +1,114 @@
+.Container {
+  width: 0;
+  transition: all 0.3s linear;
+  overflow: hidden;
+  background: 
+  /* top, transparent red */ linear-gradient(
+      rgba(246, 171, 182, 0.9),
+      rgba(246, 171, 182, 0.9)
+    ),
+    /* bottom, image */ url(../assets/BM8XYJ.jpg);
+}
+
+.ContainerOpen {
+  position: fixed;
+  z-index: 100;
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.Toggler {
+  display: none;
+  position: fixed;
+  transform: translateY(200%) translateX(100%);
+  width: 20px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.TogglerOpen {
+  z-index: 101;
+  transform: translateY(calc(200% + 4px)) translateX(100%);
+}
+
+.TogglerOpen .TogglerItem {
+  border-color: white;
+}
+
+.TogglerOpen > .TogglerItem:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.TogglerOpen > .TogglerItem:nth-child(2) {
+  transform: rotate(-45deg) translateY(-4px) translateX(4px);
+}
+
+.TogglerOpen > .TogglerItem:nth-child(3) {
+  transform: translateY(-5px);
+  border-color: transparent;
+}
+
+.TogglerItem {
+  width: 20px;
+  display: block;
+  margin-bottom: 3px;
+  border-bottom: 3px solid #f6abb6;
+  transition: all 0.3s linear;
+}
+
+.MenuItem {
+  cursor: pointer;
+  width: 50%;
+  height: 50px;
+  margin: 0 auto;
+  border-bottom: 2px solid white;
+}
+
+.MenuItem:last-child {
+  border-bottom: none;
+}
+
+.MenuItem:hover {
+  border-bottom: 2px solid #f6abb6;
+}
+
+.MenuItem:hover .MenuLink {
+  color: #f6abb6;
+  height: 50px;
+  background-color: white;
+}
+
+.MenuLink {
+  display: block;
+  height: 0;
+  line-height: 50px;
+  color: white;
+  transition: all 0.3s linear;
+}
+
+.SearchContainer {
+  height: 0;
+  overflow: hidden;
+  margin-top: 5px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  transition: 0.3s;
+}
+
+.SearchContainerOpen {
+  height: fit-content;
+  padding: 15px 10px;
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .Toggler {
+    display: block;
+  }
+}

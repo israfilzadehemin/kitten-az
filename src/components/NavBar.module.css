@@ -1,0 +1,95 @@
+.Container {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.NavContainer {
+  border-radius: 25px;
+  height: fit-content;
+  display: flex;
+  background-color: #f6abb6;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  padding: 0 10px;
+  transition: 0.3s;
+}
+
+.SearchContainer {
+  height: 0;
+  overflow: hidden;
+  margin-top: 5px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  transition: 0.3s;
+}
+
+.SearchContainerOpen {
+  height: fit-content;
+  padding: 15px 10px;
+}
+
+.NavItem {
+  list-style: none;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 12px 16px;
+  margin: 0 8px;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.NavLink {
+  color: white;
+}
+
+.NavItem::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: 0.2s;
+  border-radius: 25px;
+}
+
+.NavContainer:hover {
+  background-color: #fff;
+}
+
+.NavContainer:hover .NavLink {
+  color: #f6abb6;
+}
+
+.NavItem:hover::before {
+  background: #f6abb6;
+  box-shadow: 0px 3px 20px 0px #f6abb6;
+  transform: scale(1.2);
+}
+
+.NavItem:hover .NavLink {
+  color: white;
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .Container {
+    display: none;
+  }
+}
