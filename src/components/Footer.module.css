@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.Container {
+  -webkit-box-shadow: 0px 2px 18px 0px rgba(245, 158, 171, 0.59);
+  -moz-box-shadow: 0px 2px 18px 0px rgba(245, 158, 171, 0.59);
+  box-shadow: 0px 2px 18px 0px rgba(245, 158, 171, 0.59);
+  border-radius: 5px;
+  width: 100%;
+  padding: 3%;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  vertical-align: bottom;
+  justify-content: flex-start;
+}
+
+.FooterItem {
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+}
+
+.FooterItem > * {
+  width: 100%;
+  text-align: left;
+  color: #f17588;
+  font-size: 20px;
+}
+
+.FooterTitle {
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-family: "Pacifico", serif;
+}
+
+.FooterText,
+.FooterLink {
+  padding: 5px 0;
+  transition: all 0.2s linear;
+}
+
+.FooterLink:hover span {
+  transition: all 0.1s linear;
+  opacity: 0;
+}
+
+.FooterLink:hover i {
+  font-size: 35px;
+}
+
+.FooterItem i {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  margin-right: 10px;
+  transition: all 0.2s linear;
+}
+
+.FooterItem:nth-child(1),
+.FooterItem:nth-child(2) {
+  width: 30%;
+}
+
+.FooterItem:nth-child(3) {
+  width: 35%;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .Container {
+    width: 95%;
+    border-radius: 10px;
+  }
+
+  .FooterItem {
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+
+  .FooterItem > * {
+    text-align: center;
+  }
+}

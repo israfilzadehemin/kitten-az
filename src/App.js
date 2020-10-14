@@ -1,17 +1,20 @@
 import React from "react";
 import "./App.css";
-import Button from "./components/Button";
-import Card from "./components/Card";
-import Input from "./components/Input";
-import Logo from "./components/Logo";
-import NavBar from "./components/NavBar";
-import SideDrawer from "./components/SideDrawer";
+import About from "./components/About";
+import Advice from "./components/Advice";
+import Footer from "./components/Footer";
+import RandomCards from "./components/RandomCards";
+import Services from "./components/Services";
 import Navigation from "./components/Navigation";
+import BigCard from "./components/BigCard";
+import Home from "./pages/Home";
+import SearchBar from "./components/SearchBar";
+import CardList from "./pages/CardList";
 
 function App() {
   return (
     <div className="App">
-      <Navigation />
+      <BigCard />
     </div>
   );
 }

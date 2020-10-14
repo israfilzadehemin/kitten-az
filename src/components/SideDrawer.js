@@ -32,7 +32,6 @@ const SideDrawer = (props) => {
         <div className={classes.TogglerItem}></div>
         <div className={classes.TogglerItem}></div>
       </div>
-      <Logo width="150px" />
       <ul className={containerClasses.join(" ")}>
         <li className={classes.MenuItem}>
           <a className={classes.MenuLink} href="#">
@@ -67,7 +66,7 @@ const SideDrawer = (props) => {
             Search
           </a>
         </li>
-        <li className={classes.MenuItem}>
+        <li className={classes.MenuItem} style={{ width: "100%" }}>
           <div className={searchContainerClasses.join(" ")}>
             <Input width="70%" placeholder="Search..." />{" "}
             <Button width="25%" text="Search" font="15px" />

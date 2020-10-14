@@ -1,0 +1,31 @@
+.Container {
+  padding: 10px;
+  width: 100%;
+  color: #f17588;
+  text-align: left;
+  font-size: 20px;
+  display: block;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px #f1c6cd;
+  border-radius: 15px;
+  position: relative;
+  transition: all 0.1s ease-in-out;
+}
+
+.Header {
+  text-align: center;
+  font-size: 35px;
+  margin-top: 10px;
+}
+
+.ABC {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.ABCItem {
+  width: 25px;
+  text-align: center;
+}

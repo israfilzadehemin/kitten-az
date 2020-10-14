@@ -7,7 +7,9 @@ import classes from "./Navigation.module.css";
 const Navigation = () => {
   return (
     <div className={classes.Container}>
-      <Logo width="150px" className={classes.Logo} />
+      <div className={classes.LogoContainer}>
+        <Logo width="150px" className={classes.Logo} />
+      </div>
       <NavBar />
       <SideDrawer />
     </div>

@@ -1,0 +1,143 @@
+.Container {
+  padding: 5px;
+  margin: 50px auto 0;
+  width: 75%;
+  height: auto;
+  text-align: left;
+  font-size: 20px;
+  display: block;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px #f1c6cd;
+  border-radius: 15px;
+  position: relative;
+  transition: all 0.1s ease-in-out;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: #f6abb6;
+}
+
+.Left {
+  width: 30%;
+  height: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.Right {
+  width: 65%;
+}
+
+.Title {
+  text-transform: capitalize;
+  text-align: center;
+  text-shadow: 2px 2px #f1c6cd;
+}
+
+.Accordion {
+  margin-top: 10px;
+  width: 90%;
+}
+
+.AccordionItem > .AccordionInfo {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.Active > .AccordionInfo {
+  height: 250px;
+}
+
+i {
+  transition: all 0.5s ease-in-out;
+}
+
+.Active i {
+  transform: rotate(-900deg);
+}
+
+.Active .Section {
+  background-color: #f6abb6;
+  color: white;
+}
+
+.Active .Section span {
+  margin: 0 auto;
+}
+
+.Section {
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  transition: all 0.5s ease-in-out;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.Section span {
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+}
+
+.FoodButtons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.FoodButton {
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.FoodButtonActive {
+  color: aqua;
+}
+
+.Help {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.List {
+  width: 100%;
+  padding: 5px 0;
+}
+
+.ListItem {
+  width: 100%;
+  margin: 5px 0;
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .Container {
+    width: 95%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  .Left {
+    width: 100%;
+    height: 300px;
+  }
+
+  .Left img {
+    object-fit: contain;
+  }
+  .Right {
+    width: 100%;
+  }
+  .Help > * {
+    width: 100% !important;
+  }
+}

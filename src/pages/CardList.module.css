@@ -1,0 +1,27 @@
+.Container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.Left {
+  width: 20%;
+}
+
+.Right {
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .Left,
+  .Right {
+    width: 95%;
+  }
+
+  .Right > * {
+    margin: 15px auto !important;
+  }
+}

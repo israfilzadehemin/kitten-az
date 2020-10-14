@@ -1,8 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
 .Container {
-  width: calc(20% - 15px);
-  margin-right: 15px;
-  margin-bottom: 25px;
-  height: 350px;
+  width: 30%;
+  height: 550px;
   text-align: left;
   font-size: 20px;
   display: block;
@@ -24,36 +24,18 @@
 }
 
 .CardInfo {
+  font-family: "Pacifico", serif;
   top: 65%;
   position: absolute;
   padding: 10px 15px;
   color: #f17588;
-}
-
-.CardCategory {
-  font-weight: bold;
-}
-
-.CardTitle {
-  margin-top: 5px;
   font-size: 25px;
-}
-
-.Container:hover {
-  transform: scale(1.1);
-}
-
-.Container:hover .CardImage {
-  height: 100%;
-  opacity: 0.2;
+  text-align: center;
 }
 
 @media (min-width: 320px) and (max-width: 1024px) {
   .Container {
-    width: 95%;
-  }
-
-  .Container:hover {
-    transform: unset;
+    width: 90%;
+    margin: 0 auto 10px auto;
   }
 }

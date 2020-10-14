@@ -8,3 +8,16 @@
   background-position: center;
   background-clip: border-box;
 }
+
+.LogoContainer {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .LogoContainer {
+    right: 10px;
+    left: unset;
+  }
+}
