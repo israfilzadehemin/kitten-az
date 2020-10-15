@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import classes from "./BigCard.module.css";
 import Image from "../assets/img/BM8XYJ.jpg";
-import Input from "./Input";
-import Button from "./Button";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 const BigCard = () => {
   const [generalInfo, setGeneralInfo] = useState(false);
