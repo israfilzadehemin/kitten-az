@@ -1,0 +1,9 @@
+import axios from "axios";
+
+export const getAllBreeds = (page = 0, size = 10) => {
+  return axios.get(`/api/1.0/breeds?current=${page}&size=${size}`);
+};
+
+export const getBreedById = (id) => {
+  return axios.get(`/api/1.0/breeds/${id}`);
+};

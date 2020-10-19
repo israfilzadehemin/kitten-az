@@ -1,16 +1,13 @@
 import React from "react";
 import classes from "./Card.module.css";
 
-const Card = (props) => {
+const Card = ({ name, category, image }) => {
   return (
     <a href="#" className={classes.Container}>
-      <img
-        src="https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-        className={classes.CardImage}
-      />
+      <img src={`img/${image}`} className={classes.CardImage} />
       <div className={classes.CardInfo}>
-        <div className={classes.CardCategory}>Cats</div>
-        <div className={classes.CardTitle}>British shorthair</div>
+        <div className={classes.CardCategory}>{category}</div>
+        <div className={classes.CardTitle}>{name}</div>
       </div>
     </a>
   );

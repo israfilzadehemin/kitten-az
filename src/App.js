@@ -22,7 +22,7 @@ function App() {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/all" exact component={CardList} />
-      <Route path="/1" exact component={BigCard} />
+      <Route path="/:breedId" exact component={BigCard} />
       <Redirect to="/" />
     </Switch>
   );

@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import classes from "./BigCard.module.css";
 import Image from "../assets/img/BM8XYJ.jpg";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { getBreedById } from "../api/apiCalls";
 
 const BigCard = () => {
   const [generalInfo, setGeneralInfo] = useState(false);
@@ -10,6 +12,8 @@ const BigCard = () => {
   const [responsibilites, setResponsibilites] = useState(false);
   const [characteristics, setCharacteristics] = useState(false);
   const [sortFoods, setSortFoods] = useState("suggestion");
+  const [breed, setBreed] = useState({});
+  const [error, setError] = useState();
 
   let generalInfoClasses =
     generalInfo === true
@@ -50,13 +54,26 @@ const BigCard = () => {
     setSortFoods(by);
   };
 
+  const { breedId } = useParams();
+
+  useEffect(() => {
+    getBreedById(breedId)
+      .then((resp) => {
+        setBreed(resp.data);
+        console.log(resp.data);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  }, []);
+
   return (
     <div className={classes.Container}>
       <div className={classes.Left}>
         <img src={Image} alt="Breed image" />
       </div>
       <div className={classes.Right}>
-        <h2 className={classes.Title}>British silver Tabby</h2>
+        <h2 className={classes.Title}></h2>
         <div className={classes.Accordion}>
           <div className={generalInfoClasses.join(" ")}>
             <h3
