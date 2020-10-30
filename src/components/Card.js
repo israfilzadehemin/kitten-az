@@ -1,9 +1,9 @@
 import React from "react";
 import classes from "./Card.module.css";
 
-const Card = ({ name, category, image }) => {
+const Card = ({ name, category, image, id }) => {
   return (
-    <a href="#" className={classes.Container}>
+    <a href={`/${id}`} className={classes.Container}>
       <img src={`img/${image}`} className={classes.CardImage} />
       <div className={classes.CardInfo}>
         <div className={classes.CardCategory}>{category}</div>

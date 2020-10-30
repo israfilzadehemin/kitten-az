@@ -57,7 +57,8 @@ const CardList = () => {
   if (page.content.length != 0) {
     breedContainer = page.content.map((b) => (
       <Card
-        key={b.name}
+        key={b.id}
+        id={b.id}
         name={b.name}
         category={b.category.name}
         image={b.image}
