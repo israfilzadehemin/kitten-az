@@ -15,7 +15,7 @@ const Advice = () => {
           type="textarea"
           placeholder="Problem (Please try to be as clear as possible)"
         />
-        <Button text="Send" />
+        <Button text="Send" width="100%" />
       </div>
     </div>
   );

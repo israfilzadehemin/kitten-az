@@ -31,19 +31,14 @@ const NavBar = (props) => {
           </NavLink>
         </li>
         <li className={classes.NavItem}>
-          <a className={classes.NavLink} href="#">
+          <NavLink className={classes.NavLink} to="/advice">
             Get advised
-          </a>
+          </NavLink>
         </li>
         <li className={classes.NavItem}>
-          <a className={classes.NavLink} href="#">
+          <NavLink className={classes.NavLink} to="/about">
             About us
-          </a>
-        </li>
-        <li className={classes.NavItem}>
-          <a className={classes.NavLink} href="#">
-            Contact
-          </a>
+          </NavLink>
         </li>
         <li
           className={classes.NavItem}

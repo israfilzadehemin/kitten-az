@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import classes from "./SideDrawer.module.css";
 import Logo from "./Logo";
 import Input from "./Input";
@@ -33,30 +34,25 @@ const SideDrawer = (props) => {
         <div className={classes.TogglerItem}></div>
       </div>
       <ul className={containerClasses.join(" ")}>
-        <li className={classes.MenuItem}>
-          <a className={classes.MenuLink} href="#">
+        <li className={classes.MenuItem} onClick={() => setDrawerOpen(false)}>
+          <NavLink className={classes.MenuLink} to="/">
             Home
-          </a>
+          </NavLink>
         </li>
-        <li className={classes.MenuItem}>
-          <a className={classes.MenuLink} href="#">
-            All breeds
-          </a>
+        <li className={classes.MenuItem} onClick={() => setDrawerOpen(false)}>
+          <NavLink className={classes.MenuLink} to="/all">
+            All cats
+          </NavLink>
         </li>
-        <li className={classes.MenuItem}>
-          <a className={classes.MenuLink} href="#">
+        <li className={classes.MenuItem} onClick={() => setDrawerOpen(false)}>
+          <NavLink className={classes.MenuLink} to="/advice">
             Get advised
-          </a>
+          </NavLink>
         </li>
-        <li className={classes.MenuItem}>
-          <a className={classes.MenuLink} href="#">
+        <li className={classes.MenuItem} onClick={() => setDrawerOpen(false)}>
+          <NavLink className={classes.MenuLink} to="/about">
             About us
-          </a>
-        </li>
-        <li className={classes.MenuItem}>
-          <a className={classes.MenuLink} href="#">
-            Contact
-          </a>
+          </NavLink>
         </li>
         <li className={classes.MenuItem}>
           <a
@@ -69,7 +65,12 @@ const SideDrawer = (props) => {
         <li className={classes.MenuItem} style={{ width: "100%" }}>
           <div className={searchContainerClasses.join(" ")}>
             <Input width="70%" placeholder="Search..." />{" "}
-            <Button width="25%" text="Search" font="15px" />
+            <Button
+              width="25%"
+              text="Search"
+              font="15px"
+              onClick={() => setDrawerOpen(false)}
+            />
           </div>
         </li>
       </ul>

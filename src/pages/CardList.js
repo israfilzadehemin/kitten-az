@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
 import { getAllBreeds, getBreedsByLetter } from "../api/apiCalls";
-import { useSSR } from "react-i18next";
+import Spinner from "../components/Spinner";
 
 const CardList = () => {
   const [page, setPage] = useState({
@@ -12,6 +12,8 @@ const CardList = () => {
     number: 0,
   });
 
+  const [loading, setLoading] = useState(false);
+
   const { content: breeds, last, first } = page;
 
   useEffect(() => {
@@ -19,11 +21,14 @@ const CardList = () => {
   }, []);
 
   const loadAllBreeds = (newPage) => {
+    setLoading(true);
     getAllBreeds(newPage)
       .then((resp) => {
+        setLoading(false);
         setPage(resp.data);
       })
       .catch((err) => {
+        setLoading(false);
         setPage({
           content: [],
         });
@@ -31,13 +36,16 @@ const CardList = () => {
   };
 
   const loadBreedsByLetter = (letter) => {
+    setLoading(true);
     getBreedsByLetter(letter)
       .then((resp) => {
+        setLoading(false);
         setPage({
           content: resp.data,
         });
       })
       .catch((err) => {
+        setLoading(false);
         setPage({
           content: [],
         });
@@ -55,6 +63,10 @@ const CardList = () => {
         image={b.image}
       />
     ));
+  }
+
+  if (loading === true) {
+    breedContainer = <Spinner />;
   }
 
   return (
