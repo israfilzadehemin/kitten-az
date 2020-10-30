@@ -51,6 +51,7 @@ img {
 }
 
 .Active > .AccordionInfo {
+  padding: 10px;
   height: 250px;
 }
 
@@ -140,4 +141,12 @@ i {
   .Help > * {
     width: 100% !important;
   }
+}
+
+.NotFound {
+  width: 100%;
+  font-size: 35px;
+  text-align: center;
+  margin: 15px;
+  font-family: "Pacifico";
 }

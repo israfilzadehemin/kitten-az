@@ -3,7 +3,11 @@ import React from "react";
 import Button from "./Button";
 import Input from "./Input";
 
-const SearchBar = () => {
+const SearchBar = ({ onClickLetter, onClickShowAll }) => {
+  let letters = [];
+  for (let i = 97; i <= 122; i++) {
+    letters.push(String.fromCharCode(i).toUpperCase());
+  }
   return (
     <div className={classes.Container}>
       <h3 className={classes.Header}> Search</h3>
@@ -11,30 +15,21 @@ const SearchBar = () => {
       <Button width="95%" text="Find" font="25px" />
       <h3 className={classes.Header}> Select by ABC</h3>
       <div className={classes.ABC}>
-        <p className={classes.ABCItem}>A</p>
-        <p className={classes.ABCItem}>B</p>
-        <p className={classes.ABCItem}>C</p>
-        <p className={classes.ABCItem}>D</p>
-        <p className={classes.ABCItem}>E</p>
-        <p className={classes.ABCItem}>F</p>
-        <p className={classes.ABCItem}>G</p>
-        <p className={classes.ABCItem}>H</p>
-        <p className={classes.ABCItem}>I</p>
-        <p className={classes.ABCItem}>J</p>
-        <p className={classes.ABCItem}>K</p>
-        <p className={classes.ABCItem}>L</p>
-        <p className={classes.ABCItem}>A</p>
-        <p className={classes.ABCItem}>B</p>
-        <p className={classes.ABCItem}>C</p>
-        <p className={classes.ABCItem}>D</p>
-        <p className={classes.ABCItem}>E</p>
-        <p className={classes.ABCItem}>F</p>
-        <p className={classes.ABCItem}>G</p>
-        <p className={classes.ABCItem}>H</p>
-        <p className={classes.ABCItem}>I</p>
-        <p className={classes.ABCItem}>J</p>
-        <p className={classes.ABCItem}>K</p>
-        <p className={classes.ABCItem}>L</p>
+        {letters.map((l) => (
+          <button
+            key={l}
+            className={classes.ABCItem}
+            onClick={() => onClickLetter(l)}
+          >
+            {l}
+          </button>
+        ))}
+        <Button
+          width="95%"
+          text="Show all"
+          font="25px"
+          onClick={onClickShowAll}
+        />
       </div>
     </div>
   );

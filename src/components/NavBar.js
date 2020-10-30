@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Button from "./Button";
 import Input from "./Input";
 import classes from "./NavBar.module.css";
@@ -16,14 +17,18 @@ const NavBar = (props) => {
     <div className={classes.Container}>
       <ul className={classes.NavContainer}>
         <li className={classes.NavItem}>
-          <a className={classes.NavLink} href="#">
+          <NavLink
+            activeClassName={classes.Active}
+            className={classes.NavLink}
+            to="/"
+          >
             Home
-          </a>
+          </NavLink>
         </li>
         <li className={classes.NavItem}>
-          <a className={classes.NavLink} href="#">
+          <NavLink className={classes.NavLink} to="/all">
             All cats
-          </a>
+          </NavLink>
         </li>
         <li className={classes.NavItem}>
           <a className={classes.NavLink} href="#">

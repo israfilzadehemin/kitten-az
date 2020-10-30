@@ -11,8 +11,8 @@ const BigCard = () => {
   const [foods, setFoods] = useState(false);
   const [responsibilites, setResponsibilites] = useState(false);
   const [characteristics, setCharacteristics] = useState(false);
-  const [sortFoods, setSortFoods] = useState("suggestion");
-  const [breed, setBreed] = useState({});
+  const [sortFoods, setSortFoods] = useState("");
+  const [breed, setBreed] = useState();
   const [error, setError] = useState();
 
   let generalInfoClasses =
@@ -36,7 +36,7 @@ const BigCard = () => {
       : [classes.AccordionItem];
 
   let suggestionButtonClasses =
-    sortFoods === "suggestion"
+    sortFoods === "alphabet"
       ? [(classes.FoodButton, classes.FoodButtonActive)]
       : [classes.FoodButton];
 
@@ -52,6 +52,23 @@ const BigCard = () => {
 
   const toggleSort = (by) => {
     setSortFoods(by);
+    sortFoodBy(by);
+  };
+
+  const sortFoodBy = (by) => {
+    switch (by) {
+      case "alphabet":
+        breed.products.sort((a, b) => (a.name > b.name ? 1 : -1));
+        break;
+
+      case "price":
+        breed.products.sort((a, b) => (a.price > b.price ? 1 : -1));
+        break;
+
+      case "producer":
+        breed.products.sort((a, b) => (a.producer.id > b.producer.id ? 1 : -1));
+        break;
+    }
   };
 
   const { breedId } = useParams();
@@ -60,129 +77,136 @@ const BigCard = () => {
     getBreedById(breedId)
       .then((resp) => {
         setBreed(resp.data);
-        console.log(resp.data);
       })
       .catch((err) => {
-        console.log(err.response);
+        if (err.response.status === 404) {
+        }
       });
   }, []);
 
-  return (
+  let output = (
     <div className={classes.Container}>
-      <div className={classes.Left}>
-        <img src={Image} alt="Breed image" />
-      </div>
-      <div className={classes.Right}>
-        <h2 className={classes.Title}></h2>
-        <div className={classes.Accordion}>
-          <div className={generalInfoClasses.join(" ")}>
-            <h3
-              className={classes.Section}
-              onClick={() => setGeneralInfo(!generalInfo)}
-            >
-              <span>General info</span>
-              <i className="fas fa-chevron-down"></i>
-            </h3>
-            <p className={classes.AccordionInfo}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more
-            </p>
-          </div>
-        </div>
-        <div className={classes.Accordion}>
-          <div className={responsibilitesClasses.join(" ")}>
-            <h3
-              className={classes.Section}
-              onClick={() => setResponsibilites(!responsibilites)}
-            >
-              <span>Responsibilites</span>
-              <i className="fas fa-chevron-down"></i>
-            </h3>
-            <div className={classes.AccordionInfo}>
-              <ul className={classes.List}>
-                <li className={classes.ListItem}> - Royal Canin</li>
-                <li className={classes.ListItem}> - Royal Canin</li>
-                <li className={classes.ListItem}> - Royal Canin</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className={classes.Accordion}>
-          <div className={characteristicsClasses.join(" ")}>
-            <h3
-              className={classes.Section}
-              onClick={() => setCharacteristics(!characteristics)}
-            >
-              <span>Characteristics</span>
-              <i className="fas fa-chevron-down"></i>
-            </h3>
-            <div className={classes.AccordionInfo}>
-              <ul className={classes.list}>
-                <li className={classes.listItem}> - Royal Canin</li>
-                <li className={classes.listItem}> - Royal Canin</li>
-                <li className={classes.listItem}> - Royal Canin</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className={classes.Accordion}>
-          <div className={foodsClasses.join(" ")}>
-            <h3 className={classes.Section} onClick={() => setFoods(!foods)}>
-              <span>Foods</span>
-              <i className="fas fa-chevron-down"></i>
-            </h3>
-            <div className={classes.AccordionInfo}>
-              <ul className={classes.FoodButtons}>
-                <li
-                  className={suggestionButtonClasses}
-                  onClick={() => {
-                    toggleSort("suggestion");
-                  }}
-                >
-                  By suggestion
-                </li>
-                <li
-                  className={priceButtonClasses}
-                  onClick={() => {
-                    toggleSort("price");
-                  }}
-                >
-                  By price
-                </li>
-                <li
-                  className={producerButtonClasses}
-                  onClick={() => {
-                    toggleSort("producer");
-                  }}
-                >
-                  By producer
-                </li>
-              </ul>
-              <ul className={classes.Foods}>
-                <li className={classes.FoodsItem}> - Royal Canin</li>
-                <li className={classes.FoodsItem}> - Royal Canin</li>
-                <li className={classes.FoodsItem}> - Royal Canin</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className={classes.Help}>
-          <h5 style={{ width: "100%", textAlign: "center", fontSize: "30px" }}>
-            Need help?
-          </h5>
-          <Input type="number" placeholder="Age (in month)" width="30%" />
-          <Input type="textarea" placeholder="Problem" width="30%" />
-          <Button text="Send" font="25px" width="25%" />
-        </div>
-      </div>
+      <h3 className={classes.NotFound}>Breed not found :(</h3>
     </div>
   );
+  if (breed) {
+    output = (
+      <div className={classes.Container}>
+        <div className={classes.Left}>
+          <img src={Image} alt="Breed image" />
+        </div>
+        <div className={classes.Right}>
+    <h2 className={classes.Title}>{breed.name}</h2>
+          <div className={classes.Accordion}>
+            <div className={generalInfoClasses.join(" ")}>
+              <h3
+                className={classes.Section}
+                onClick={() => setGeneralInfo(!generalInfo)}
+              >
+                <span>General info</span>
+                <i className="fas fa-chevron-down"></i>
+              </h3>
+              <p className={classes.AccordionInfo}>{breed.info}</p>
+            </div>
+          </div>
+          <div className={classes.Accordion}>
+            <div className={responsibilitesClasses.join(" ")}>
+              <h3
+                className={classes.Section}
+                onClick={() => setResponsibilites(!responsibilites)}
+              >
+                <span>Responsibilites</span>
+                <i className="fas fa-chevron-down"></i>
+              </h3>
+              <div className={classes.AccordionInfo}>
+                <ul className={classes.List}>
+                  {breed.responsibilities.map((r) => (
+                    <li key={r.id} className={classes.ListItem}>
+                      - {r.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className={classes.Accordion}>
+            <div className={characteristicsClasses.join(" ")}>
+              <h3
+                className={classes.Section}
+                onClick={() => setCharacteristics(!characteristics)}
+              >
+                <span>Characteristics</span>
+                <i className="fas fa-chevron-down"></i>
+              </h3>
+              <div className={classes.AccordionInfo}>
+                <ul className={classes.list}>
+                  {breed.characteristics.map((c) => (
+                    <li key={c.id} className={classes.ListItem}>
+                      - {c.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className={classes.Accordion}>
+            <div className={foodsClasses.join(" ")}>
+              <h3 className={classes.Section} onClick={() => setFoods(!foods)}>
+                <span>Foods</span>
+                <i className="fas fa-chevron-down"></i>
+              </h3>
+              <div className={classes.AccordionInfo}>
+                <ul className={classes.FoodButtons}>
+                  <li
+                    className={suggestionButtonClasses}
+                    onClick={() => {
+                      toggleSort("alphabet");
+                    }}
+                  >
+                    By alphabet
+                  </li>
+                  <li
+                    className={priceButtonClasses}
+                    onClick={() => {
+                      toggleSort("price");
+                    }}
+                  >
+                    By price
+                  </li>
+                  <li
+                    className={producerButtonClasses}
+                    onClick={() => {
+                      toggleSort("producer");
+                    }}
+                  >
+                    By producer
+                  </li>
+                </ul>
+                <ul className={classes.Foods}>
+                  {breed.products.map((p) => (
+                    <li key={p.id} className={classes.ListItem}>
+                      - {p.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className={classes.Help}>
+            <h5
+              style={{ width: "100%", textAlign: "center", fontSize: "30px" }}
+            >
+              Need help?
+            </h5>
+            <Input type="number" placeholder="Age (in month)" width="30%" />
+            <Input type="textarea" placeholder="Problem" width="30%" />
+            <Button text="Send" font="25px" width="25%" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+  return output;
 };
 
 export default BigCard;

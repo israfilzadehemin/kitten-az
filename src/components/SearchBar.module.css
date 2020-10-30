@@ -21,11 +21,21 @@
   display: flex;
   width: 90%;
   margin: 0 auto;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .ABCItem {
   width: 25px;
   text-align: center;
+  border: none;
+  color: #f17588;
+  font-size: 17px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.1s linear;
+}
+
+.ABCItem:active {
+  transform: rotate(90deg);
 }
