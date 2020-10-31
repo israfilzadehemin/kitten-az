@@ -15,3 +15,11 @@ export const getBreedById = (id) => {
 export const getAllContacts = () => {
   return axios.get(`/api/1.0/contacts`);
 };
+
+export const getAllAbouts = () => {
+  return axios.get(`/api/1.0/abouts`);
+};
+
+export const getAllServices = () => {
+  return axios.get(`/api/1.0/services`);
+};

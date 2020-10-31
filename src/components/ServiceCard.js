@@ -1,18 +1,13 @@
 import React from "react";
 import classes from "./ServiceCard.module.css";
 
-const Card = (props) => {
+const ServiceCard = ({ image, name }) => {
   return (
     <div className={classes.Container}>
-      <img
-        src="https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-        className={classes.CardImage}
-      />
-      <div className={classes.CardInfo}>
-        Providing regular info about your sweet friends
-      </div>
+      <img src={`img/${image}`} className={classes.CardImage} />
+      <div className={classes.CardInfo}>{name}</div>
     </div>
   );
 };
 
-export default Card;
+export default ServiceCard;
