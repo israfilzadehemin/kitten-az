@@ -1,0 +1,38 @@
+.Container {
+  width: 300px;
+  text-align: left;
+  font-size: 20px;
+  height: auto;
+}
+
+.Select {
+  background: none;
+  width: 100%;
+  font-size: 20px;
+  height: 50px;
+  padding: 10px;
+  color: #f17588;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #f59eab;
+  transition: all 0.3s linear;
+}
+
+.Select:focus {
+  -webkit-box-shadow: 10px 10px 42px -7px #f6abb6;
+  -moz-box-shadow: 10px 10px 42px -7px #f6abb6;
+  box-shadow: 10px 10px 42px -7px #f6abb6;
+  border-color: transparent;
+  border-radius: 5px;
+}
+
+.Select option {
+  color: #f17588;
+  text-transform: capitalize;
+}
+
+.Select option:disabled {
+  font-weight: bold;
+  color: #f6abb6;
+  font-style: italic;
+}

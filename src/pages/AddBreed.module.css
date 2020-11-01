@@ -1,0 +1,12 @@
+.Container {
+  width: 99%;
+  margin: 25px auto;
+  padding: 15px;
+  background-color: #f6ccd4;
+  border-radius: 5px;
+}
+
+.Form {
+  background-color: white;
+  padding: 15px;
+}

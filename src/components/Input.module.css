@@ -21,12 +21,13 @@
 .Textarea {
   font-family: "Source Sans Pro", sans-serif;
   resize: none;
-  overflow: hidden;
   height: 50px;
+  overflow: hidden;
 }
 
 .Textarea:focus {
   height: 100px;
+  overflow: auto;
 }
 
 .Input::placeholder {

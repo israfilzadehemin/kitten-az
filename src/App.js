@@ -3,6 +3,7 @@ import "./App.css";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
+import Selectbox from "./components/Selectbox";
 
 const Home = React.lazy(() => {
   return import("./pages/Home");
@@ -18,6 +19,10 @@ const Reset = React.lazy(() => {
 
 const Dashboard = React.lazy(() => {
   return import("./pages/Dashboard");
+});
+
+const AddBreed = React.lazy(() => {
+  return import("./pages/AddBreed");
 });
 
 const CardList = React.lazy(() => {
@@ -40,9 +45,10 @@ function App() {
   let routes = (
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/login" exact component={Login} />
-      <Route path="/reset" exact component={Reset} />
-      <Route path="/dashboard" exact component={Dashboard} />
+      <Route path="/admin/login" exact component={Login} />
+      <Route path="/admin/reset" exact component={Reset} />
+      <Route path="/admin/dashboard" exact component={Dashboard} />
+      <Route path="/admin/new/breed" exact component={AddBreed} />
       <Route path="/all" exact component={CardList} />
       <Route path="/advice" exact component={Advice} />
       <Route path="/about" exact component={About} />
