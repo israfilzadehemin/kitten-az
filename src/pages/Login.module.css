@@ -1,0 +1,29 @@
+.Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 25px auto;
+  padding: 15px;
+  width: 30%;
+  background-color: #f6ccd4;
+  border-radius: 5px;
+}
+
+.Link {
+  color: white;
+  font-size: 20px;
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.Link:hover,
+.Link:active {
+  text-decoration: underline;
+  color: #f17588;
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .Container {
+    width: 95%;
+  }
+}

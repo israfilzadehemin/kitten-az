@@ -8,6 +8,18 @@ const Home = React.lazy(() => {
   return import("./pages/Home");
 });
 
+const Login = React.lazy(() => {
+  return import("./pages/Login");
+});
+
+const Reset = React.lazy(() => {
+  return import("./pages/Reset");
+});
+
+const Dashboard = React.lazy(() => {
+  return import("./pages/Dashboard");
+});
+
 const CardList = React.lazy(() => {
   return import("./pages/CardList");
 });
@@ -28,6 +40,9 @@ function App() {
   let routes = (
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/login" exact component={Login} />
+      <Route path="/reset" exact component={Reset} />
+      <Route path="/dashboard" exact component={Dashboard} />
       <Route path="/all" exact component={CardList} />
       <Route path="/advice" exact component={Advice} />
       <Route path="/about" exact component={About} />

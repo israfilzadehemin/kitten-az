@@ -1,0 +1,64 @@
+.Container {
+  width: 99%;
+  margin: 25px auto;
+  padding: 15px;
+  background-color: #f6ccd4;
+  border-radius: 5px;
+}
+
+.Accordion {
+  text-align: left;
+}
+
+.AccordionItem {
+  padding: 15px;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.AccordionSection {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  color: #f6abb6;
+  font-size: 25px;
+  border-bottom: 2px solid #f6ccd3;
+}
+
+.AccordionBody {
+  margin-top: 3px;
+}
+
+.AccordionLink {
+  display: block;
+  width: 100%;
+  color: #f6abb6;
+  font-size: 20px;
+}
+
+.AccordionLink:hover,
+.AccordionLink:active {
+  text-decoration: underline;
+  color: blueviolet;
+}
+
+@media (max-width: 1024px) and (min-width: 320px) {
+  .Container {
+    width: 95%;
+    border-radius: 10px;
+    background-color: white;
+    -webkit-box-shadow: 0px 2px 18px 0px rgba(245, 158, 171, 0.59);
+    -moz-box-shadow: 0px 2px 18px 0px rgba(245, 158, 171, 0.59);
+    box-shadow: 0px 2px 18px 0px rgba(245, 158, 171, 0.59);
+  }
+
+  .AccordionItem {
+    background-color: #f6ccd4;
+  }
+
+  .AccordionSection,
+  .AccordionLink {
+    color: white;
+  }
+}
